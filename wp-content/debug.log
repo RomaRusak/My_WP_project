@@ -1,0 +1,11 @@
+[29-May-2025 12:06:32 UTC] property_1
+[29-May-2025 12:06:32 UTC] PHP Deprecated:  error_log(): Passing null to parameter #1 ($message) of type string is deprecated in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php on line 50
+[29-May-2025 12:06:32 UTC] 
+[29-May-2025 12:06:32 UTC] property_2
+[29-May-2025 12:06:32 UTC] PHP Deprecated:  error_log(): Passing null to parameter #1 ($message) of type string is deprecated in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php on line 50
+[29-May-2025 12:06:32 UTC] 
+[29-May-2025 12:06:32 UTC] property_1
+[29-May-2025 12:06:32 UTC] Post 1 text
+[29-May-2025 12:06:32 UTC] property_2
+[29-May-2025 12:06:32 UTC] PHP Deprecated:  error_log(): Passing null to parameter #1 ($message) of type string is deprecated in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php on line 50
+[29-May-2025 12:06:32 UTC] 
