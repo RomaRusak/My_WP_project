@@ -9,28 +9,32 @@ Author: Raman
 
 require_once plugin_dir_path(__FILE__) . './inc/CustomPostTypeOne.php';
 require_once plugin_dir_path(__FILE__) . './inc/CustomPostTypeTwo.php';
+require_once plugin_dir_path(__FILE__) . './inc/CustomTaxonomyOne.php';
 
 class MyPlugin {
 
     private $custom_post_type_one;
     private $custom_post_type_two;
+    private $custom_taxonomy_one;
 
     public function __construct(
         CustomPostTypeOne $custom_post_type_one,
-        CustomPostTypeTwo $custom_post_type_two
+        CustomPostTypeTwo $custom_post_type_two,
+        CustomTaxonomyOne $custom_taxonomy_one,
     )
     {
         $this->custom_post_type_one = $custom_post_type_one;
         $this->custom_post_type_two = $custom_post_type_two;
+        $this->custom_taxonomy_one  = $custom_taxonomy_one;
     }
 
     public function register() {
-        add_action('init', [$this, 'register_custom_post_types']);
+        add_action('init', [$this, 'create_custom_post_types']);
         add_action('add_meta_boxes', [$this, 'add_meta_boxes'],);
         add_action('save_post', [$this, 'save_posts_meta'], 10, 2);
     }
 
-    public function register_custom_post_types() {
+    public function create_custom_post_types() {
         $this->custom_post_type_one->create_post();
         $this->custom_post_type_two->create_post();
     }
@@ -62,7 +66,8 @@ class MyPlugin {
 if (class_exists('MyPlugin')) {
     $myPlugin = new MyPlugin(
         new CustomPostTypeOne(), 
-        new CustomPostTypeTwo()
+        new CustomPostTypeTwo(),
+        new CustomTaxonomyOne(),
     );
     $myPlugin->register();
 }

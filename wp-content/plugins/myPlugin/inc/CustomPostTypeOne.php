@@ -15,7 +15,7 @@ class CustomPostTypeOne {
                 'not_found'          => 'No My Custom Posts 1 Found', 
                 'not_found_in_trash' => 'No My Custom Posts 1 Found in Trash', 
                 'menu_name'          => 'My Custom Posts 1',
-		],
+		    ],
             'public' => true, 
             'show_in_rest' => true,
             'supports' => ['title', 'editor'],
@@ -38,5 +38,7 @@ class CustomPostTypeOne {
             <?php
        }, 'my-custom-type-1');
     }
+
+   
 }
 
