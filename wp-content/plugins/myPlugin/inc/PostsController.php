@@ -30,8 +30,9 @@ class PostsController {
     }
    
     public function save_posts_meta($post_id, $post) {
-        $this->save_meta_field($post_id, 'property_1', $_POST['property_1'] ?? null);
-        $this->save_meta_field($post_id, 'property_2', $_POST['property_2'] ?? null);
+        $this->save_meta_field($post_id, 'custom_post1_field1', $_POST['custom_post1_field1'] ?? null);
+        $this->save_meta_field($post_id, 'custom_post2_field1', $_POST['custom_post2_field1'] ?? null);
+        $this->save_meta_field($post_id, 'custom_post1_field2', $_POST['custom_post1_field2'] ?? null);
     }
 
     private function save_meta_field($post_id, $field_name, $value) {

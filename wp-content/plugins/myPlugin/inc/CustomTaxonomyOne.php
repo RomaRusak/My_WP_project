@@ -22,7 +22,7 @@ class CustomTaxonomyOne {
             'query_var' => true,
         ];
 
-        register_taxonomy($this->custom_taxonomy_name , ['my-custom-type-1'], $args);
+        register_taxonomy($this->custom_taxonomy_name , ['custom_post1'], $args);
     }
 
     public function add_meta_box() {

@@ -1,8 +1,10 @@
 <?php
 
 class CustomPostTypeTwo {
+    private $custom_post_type = 'custom_post2'; 
+
     public function create_post() {
-        register_post_type( 'my-custom-type-2', [
+        register_post_type( $this->custom_post_type, [
             'labels' => [
                 'name'               => 'My Custom Posts 2',
                 'singular_name'      => 'My Custom Post 2',
@@ -26,26 +28,26 @@ class CustomPostTypeTwo {
 
     public function add_meta_boxes() {
         add_meta_box('custom-type-2-metabox', 'Custom post 2 setting', function($post) {
-            $property_2_value = get_post_meta($post->ID, 'property_2', true) ?? '';
+            $field_1_value = get_post_meta($post->ID, 'custom_post2_field1', true) ?? '';
             $options = [
                 'type 1',
                 'type 2',
                 'type 3',
             ];
             ?>
-                <label for="property_2">
-                    property 2
-                    <select name="property_2" id="property_2">
-                        <option value="">Select property 2</option>
+                <label for="custom_post2_field1">
+                    Field 1
+                    <select name="custom_post2_field1" id="custom_post2_field1">
+                        <option value="">Select</option>
                         <?php
                             foreach ($options as $value) {
-                                $isSelected = ($property_2_value === $value) ? 'selected' : '';
+                                $isSelected = ($field_1_value === $value) ? 'selected' : '';
                                 echo "<option value='{$value}' {$isSelected}>{$value}</option>";
                             }
                         ?>
                     </select>
                 </label>
             <?php
-       }, 'my-custom-type-2');
+       }, $this->custom_post_type);
     }
 }
