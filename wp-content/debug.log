@@ -4,3 +4,107 @@
 [30-May-2025 11:50:35 UTC]   Automatic plugin updates starting...
 [30-May-2025 11:50:35 UTC]   Automatic plugin updates complete.
 [30-May-2025 11:50:36 UTC] Automatic updates complete.
+[30-May-2025 11:59:58 UTC] PHP Fatal error:  Uncaught Error: Object of class TaxonomiesController could not be converted to string in /var/www/my_wp_project/wp-includes/functions.php:4028
+Stack trace:
+#0 /var/www/my_wp_project/wp-includes/functions.php(3831): _default_wp_die_handler()
+#1 /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php(70): wp_die()
+#2 /var/www/my_wp_project/wp-settings.php(545): include_once('...')
+#3 /var/www/my_wp_project/wp-config.php(103): require_once('...')
+#4 /var/www/my_wp_project/wp-load.php(50): require_once('...')
+#5 /var/www/my_wp_project/wp-admin/admin.php(35): require_once('...')
+#6 /var/www/my_wp_project/wp-admin/edit.php(10): require_once('...')
+#7 {main}
+  thrown in /var/www/my_wp_project/wp-includes/functions.php on line 4028
+[30-May-2025 12:00:20 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function MyPlugin::__construct(), 2 passed in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php on line 71 and exactly 3 expected in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php:21
+Stack trace:
+#0 /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php(71): MyPlugin->__construct()
+#1 /var/www/my_wp_project/wp-settings.php(545): include_once('...')
+#2 /var/www/my_wp_project/wp-config.php(103): require_once('...')
+#3 /var/www/my_wp_project/wp-load.php(50): require_once('...')
+#4 /var/www/my_wp_project/wp-admin/admin.php(35): require_once('...')
+#5 /var/www/my_wp_project/wp-admin/edit.php(10): require_once('...')
+#6 {main}
+  thrown in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php on line 21
+[30-May-2025 12:02:48 UTC] PHP Warning:  require_once(/var/www/my_wp_project/wp-content/plugins/myPlugin/inc/./inc/CustomTaxonomyOne.php): Failed to open stream: No such file or directory in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/TaxonomiesController.php on line 3
+[30-May-2025 12:02:48 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/var/www/my_wp_project/wp-content/plugins/myPlugin/inc/./inc/CustomTaxonomyOne.php' (include_path='.:/usr/share/php') in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/TaxonomiesController.php:3
+Stack trace:
+#0 /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php(10): require_once()
+#1 /var/www/my_wp_project/wp-settings.php(545): include_once('...')
+#2 /var/www/my_wp_project/wp-config.php(103): require_once('...')
+#3 /var/www/my_wp_project/wp-load.php(50): require_once('...')
+#4 /var/www/my_wp_project/wp-admin/admin-ajax.php(22): require_once('...')
+#5 {main}
+  thrown in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/TaxonomiesController.php on line 3
+[30-May-2025 12:02:48 UTC] PHP Warning:  require_once(/var/www/my_wp_project/wp-content/plugins/myPlugin/inc/./inc/CustomTaxonomyOne.php): Failed to open stream: No such file or directory in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/TaxonomiesController.php on line 3
+[30-May-2025 12:02:48 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/var/www/my_wp_project/wp-content/plugins/myPlugin/inc/./inc/CustomTaxonomyOne.php' (include_path='.:/usr/share/php') in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/TaxonomiesController.php:3
+Stack trace:
+#0 /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php(10): require_once()
+#1 /var/www/my_wp_project/wp-settings.php(545): include_once('...')
+#2 /var/www/my_wp_project/wp-config.php(103): require_once('...')
+#3 /var/www/my_wp_project/wp-load.php(50): require_once('...')
+#4 /var/www/my_wp_project/wp-admin/admin.php(35): require_once('...')
+#5 /var/www/my_wp_project/wp-admin/edit.php(10): require_once('...')
+#6 {main}
+  thrown in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/TaxonomiesController.php on line 3
+[30-May-2025 12:03:06 UTC] PHP Warning:  require_once(/var/www/my_wp_project/wp-content/plugins/myPlugin/inc/./inc/CustomTaxonomyOne.php): Failed to open stream: No such file or directory in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/TaxonomiesController.php on line 3
+[30-May-2025 12:03:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/var/www/my_wp_project/wp-content/plugins/myPlugin/inc/./inc/CustomTaxonomyOne.php' (include_path='.:/usr/share/php') in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/TaxonomiesController.php:3
+Stack trace:
+#0 /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php(10): require_once()
+#1 /var/www/my_wp_project/wp-settings.php(545): include_once('...')
+#2 /var/www/my_wp_project/wp-config.php(103): require_once('...')
+#3 /var/www/my_wp_project/wp-load.php(50): require_once('...')
+#4 /var/www/my_wp_project/wp-admin/admin.php(35): require_once('...')
+#5 /var/www/my_wp_project/wp-admin/edit.php(10): require_once('...')
+#6 {main}
+  thrown in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/TaxonomiesController.php on line 3
+[30-May-2025 12:03:07 UTC] PHP Warning:  require_once(/var/www/my_wp_project/wp-content/plugins/myPlugin/inc/./inc/CustomTaxonomyOne.php): Failed to open stream: No such file or directory in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/TaxonomiesController.php on line 3
+[30-May-2025 12:03:07 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/var/www/my_wp_project/wp-content/plugins/myPlugin/inc/./inc/CustomTaxonomyOne.php' (include_path='.:/usr/share/php') in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/TaxonomiesController.php:3
+Stack trace:
+#0 /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php(10): require_once()
+#1 /var/www/my_wp_project/wp-settings.php(545): include_once('...')
+#2 /var/www/my_wp_project/wp-config.php(103): require_once('...')
+#3 /var/www/my_wp_project/wp-load.php(50): require_once('...')
+#4 /var/www/my_wp_project/wp-admin/admin.php(35): require_once('...')
+#5 /var/www/my_wp_project/wp-admin/edit.php(10): require_once('...')
+#6 {main}
+  thrown in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/TaxonomiesController.php on line 3
+[30-May-2025 12:03:29 UTC] PHP Warning:  require_once(/var/www/my_wp_project/wp-content/plugins/myPlugin/inc): Failed to open stream: No such file or directory in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/TaxonomiesController.php on line 3
+[30-May-2025 12:03:29 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/var/www/my_wp_project/wp-content/plugins/myPlugin/inc/' (include_path='.:/usr/share/php') in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/TaxonomiesController.php:3
+Stack trace:
+#0 /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php(10): require_once()
+#1 /var/www/my_wp_project/wp-settings.php(545): include_once('...')
+#2 /var/www/my_wp_project/wp-config.php(103): require_once('...')
+#3 /var/www/my_wp_project/wp-load.php(50): require_once('...')
+#4 /var/www/my_wp_project/wp-admin/admin.php(35): require_once('...')
+#5 /var/www/my_wp_project/wp-admin/edit.php(10): require_once('...')
+#6 {main}
+  thrown in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/TaxonomiesController.php on line 3
+[30-May-2025 12:08:07 UTC] PHP Fatal error:  Uncaught Error: Object of class CustomTaxonomyOne could not be converted to string in /var/www/my_wp_project/wp-includes/functions.php:4028
+Stack trace:
+#0 /var/www/my_wp_project/wp-includes/functions.php(3831): _default_wp_die_handler()
+#1 /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/TaxonomiesController.php(11): wp_die()
+#2 /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php(71): TaxonomiesController->__construct()
+#3 /var/www/my_wp_project/wp-settings.php(545): include_once('...')
+#4 /var/www/my_wp_project/wp-config.php(103): require_once('...')
+#5 /var/www/my_wp_project/wp-load.php(50): require_once('...')
+#6 /var/www/my_wp_project/wp-admin/admin.php(35): require_once('...')
+#7 /var/www/my_wp_project/wp-admin/edit.php(10): require_once('...')
+#8 {main}
+  thrown in /var/www/my_wp_project/wp-includes/functions.php on line 4028
+[30-May-2025 12:29:13 UTC] PHP Fatal error:  Uncaught Error: Class "PostsController" not found in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php:73
+Stack trace:
+#0 /var/www/my_wp_project/wp-settings.php(545): include_once()
+#1 /var/www/my_wp_project/wp-config.php(103): require_once('...')
+#2 /var/www/my_wp_project/wp-load.php(50): require_once('...')
+#3 /var/www/my_wp_project/wp-admin/admin-ajax.php(22): require_once('...')
+#4 {main}
+  thrown in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php on line 73
+[30-May-2025 12:29:13 UTC] PHP Fatal error:  Uncaught Error: Class "PostsController" not found in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php:73
+Stack trace:
+#0 /var/www/my_wp_project/wp-settings.php(545): include_once()
+#1 /var/www/my_wp_project/wp-config.php(103): require_once('...')
+#2 /var/www/my_wp_project/wp-load.php(50): require_once('...')
+#3 /var/www/my_wp_project/wp-admin/admin.php(35): require_once('...')
+#4 /var/www/my_wp_project/wp-admin/edit-tags.php(10): require_once('...')
+#5 {main}
+  thrown in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php on line 73

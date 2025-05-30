@@ -5,8 +5,7 @@ class CustomTaxonomyOne {
     private $custom_taxonomy_name = 'custom-taxonomy-1';
     private $custom_field2_name = 'field_2';
 
-    public function __construct()
-    {
+    public function init() {
         add_action('init', [$this, 'create_taxonomy']);
         add_action($this->custom_taxonomy_name  . '_add_form_fields', [$this, 'add_meta_box']);
         add_action($this->custom_taxonomy_name . "_edit_form_fields", [$this, 'edit_new_custom_fields']);
