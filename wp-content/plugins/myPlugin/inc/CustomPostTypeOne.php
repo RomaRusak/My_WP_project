@@ -46,6 +46,12 @@ class CustomPostTypeOne {
 
         $all_type2_posts = get_posts([
             'post_type'   => 'custom_post2',
+            'meta_query' => [
+                [
+                    'key' => 'custom_post2_field1',
+                    'value' => 'type 2'
+                ],
+            ]
         ]);
 
         $field_2_value = (int) get_post_meta($post->ID, 'custom_post1_field2', true) ?? '';
@@ -65,7 +71,7 @@ class CustomPostTypeOne {
                             foreach ($options as $value) {
                                 $isSelected = ($field_2_value === $value['id']) ? 'selected' : '';
                                 $option_value = $value['id'];
-                                $option_label = $value['post_title'];
+                                $option_label = $value['post_title'] . ", post id: " . $value['id'];
 
                                 echo "<option value='{$option_value}' {$isSelected}>{$option_label}</option>";
                             }
