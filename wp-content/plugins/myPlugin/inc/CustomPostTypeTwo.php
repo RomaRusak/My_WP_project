@@ -42,11 +42,51 @@ class CustomPostTypeTwo {
                         <?php
                             foreach ($options as $value) {
                                 $isSelected = ($field_1_value === $value) ? 'selected' : '';
-                                echo "<option value='{$value}' {$isSelected}>{$value}</option>";
+                                echo "<option value='$value' $isSelected>$value</option>";
                             }
                         ?>
                     </select>
                 </label>
+            <?php
+       }, $this->custom_post_type);
+
+       add_meta_box('custom-type-2-metabox-2', 'Select related taxonomies', function($post) {
+            $related_taxonomy_name = 'custom-taxonomy-2';
+        
+            $all_terms = get_terms(array(
+                'taxonomy' => $related_taxonomy_name,
+                'hide_empty' => false, 
+            ));
+
+            $related_custom_2_terms =  wp_get_post_terms($post->ID, $related_taxonomy_name, array('fields' => 'ids'));
+            
+             ?>
+                <?php
+                    foreach ($all_terms as $term_data) {
+                        $term_id   = $term_data->term_id;
+                        $term_name = $term_data->name;
+                        $transformed_term_name = 'related_term_' . $term_id;
+                        $isChecked = in_array($term_id, $related_custom_2_terms) ? 'checked' : '';
+
+                        echo "
+                            <div>
+                                <label for '$term_id'>$term_name 
+                                    <input 
+                                    type='hidden' 
+                                    name='$transformed_term_name' 
+                                    value='off'
+                                    >
+                                    <input 
+                                    id='$term_id' 
+                                    name='$transformed_term_name' 
+                                    type='checkbox'
+                                    $isChecked
+                                    >
+                                </label>
+                            </div>
+                        ";
+                    }
+                ?>
             <?php
        }, $this->custom_post_type);
     }

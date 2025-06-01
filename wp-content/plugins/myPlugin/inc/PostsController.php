@@ -33,6 +33,8 @@ class PostsController {
         $this->save_meta_field($post_id, 'custom_post1_field1', $_POST['custom_post1_field1'] ?? null);
         $this->save_meta_field($post_id, 'custom_post2_field1', $_POST['custom_post2_field1'] ?? null);
         $this->save_meta_field($post_id, 'custom_post1_field2', $_POST['custom_post1_field2'] ?? null);
+
+        $this->save_related_terms($post_id, 'custom-taxonomy-2');
     }
 
     private function save_meta_field($post_id, $field_name, $value) {
@@ -46,5 +48,31 @@ class PostsController {
         }
 
         update_post_meta($post_id, $field_name, sanitize_text_field($value));
+    }
+
+    private function save_related_terms($post_id, $taxonomy_name) {
+        $all_terms = get_terms([
+            'taxonomy' => $taxonomy_name,
+            'hide_empty' => false, 
+        ]);
+
+        $selected_term_ids = [];
+        
+        foreach($all_terms as $term_data) {
+            $term_id = $term_data->term_id;
+            $input_name = 'related_term_' . $term_id;
+            
+            if (!array_key_exists($input_name, $_POST)) {
+                continue;
+            }
+
+            $input_value = $_POST[$input_name];
+
+            if ($input_value === 'on') {
+                $selected_term_ids[] = $term_id;
+            }
+        }
+
+        wp_set_post_terms($post_id, $selected_term_ids, $taxonomy_name);
     }
 }

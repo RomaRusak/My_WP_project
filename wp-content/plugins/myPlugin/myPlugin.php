@@ -9,6 +9,7 @@ Author: Raman
 
 require_once plugin_dir_path(__FILE__) . './inc/TaxonomiesController.php';
 require_once plugin_dir_path(__FILE__) . './inc/CustomTaxonomyOne.php';
+require_once plugin_dir_path(__FILE__) . './inc/CustomTaxonomyTwo.php';
 require_once plugin_dir_path(__FILE__) . './inc/CustomPostTypeOne.php';
 require_once plugin_dir_path(__FILE__) . './inc/CustomPostTypeTwo.php';
 require_once plugin_dir_path(__FILE__) . './inc/PostsController.php';
@@ -29,8 +30,8 @@ class MyPlugin {
     }
 
     public function init() {
-        $this->posts_controller->init_posts();
         $this->taxonomies_controller->init_taxonomies();
+        $this->posts_controller->init_posts();
     }
 }
 
@@ -40,7 +41,11 @@ if (class_exists('MyPlugin')) {
     $posts_controller = new PostsController($custom_post_type_one, $custom_post_type_two);
     
     $custom_taxonomy_one = new CustomTaxonomyOne();
-    $taxonomies_controller = new TaxonomiesController($custom_taxonomy_one);
+    $custom_taxonomy_two = new CustomTaxonomyTwo();
+    $taxonomies_controller = new TaxonomiesController(
+        $custom_taxonomy_one,
+        $custom_taxonomy_two,
+    );
 
     $myPlugin = new MyPlugin($posts_controller,$taxonomies_controller,);
 
