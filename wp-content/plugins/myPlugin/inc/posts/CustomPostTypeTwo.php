@@ -1,7 +1,18 @@
 <?php
 
-class CustomPostTypeTwo {
-    private $custom_post_type = 'custom_post2'; 
+require_once plugin_dir_path(__FILE__) . '../interfaces/CustomPostInterface.php';
+
+class CustomPostTypeTwo implements CustomPostInterface {
+    private $custom_post_type = null; 
+    private $custom_field2_name = null;
+
+    public function __construct(
+        array $constructor_args
+    )
+    {
+        $this->custom_post_type = $constructor_args['custom_post_type'];
+        $this->custom_field2_name = $constructor_args['custom_field2_name'];
+    } 
 
     public function create_post() {
         register_post_type( $this->custom_post_type, [
@@ -28,16 +39,17 @@ class CustomPostTypeTwo {
 
     public function add_meta_boxes() {
         add_meta_box('custom-type-2-metabox', 'Custom post 2 setting', function($post) {
-            $field_1_value = get_post_meta($post->ID, 'custom_post2_field1', true) ?? '';
+            $field_name = $this->custom_field2_name;
+            $field_1_value = get_post_meta($post->ID, $field_name, true) ?? '';
             $options = [
                 'type 1',
                 'type 2',
                 'type 3',
             ];
             ?>
-                <label for="custom_post2_field1">
+                <label for="<?= $field_name ?>">
                     Field 1
-                    <select name="custom_post2_field1" id="custom_post2_field1">
+                    <select name="<?=$field_name ?>" id="<?=$field_name ?>">
                         <option value="">Select</option>
                         <?php
                             foreach ($options as $value) {

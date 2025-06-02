@@ -8,10 +8,11 @@ Author: Raman
 */
 
 require_once plugin_dir_path(__FILE__) . './inc/TaxonomiesController.php';
-require_once plugin_dir_path(__FILE__) . './inc/CustomTaxonomyOne.php';
-require_once plugin_dir_path(__FILE__) . './inc/CustomTaxonomyTwo.php';
-require_once plugin_dir_path(__FILE__) . './inc/CustomPostTypeOne.php';
-require_once plugin_dir_path(__FILE__) . './inc/CustomPostTypeTwo.php';
+require_once plugin_dir_path(__FILE__) . './inc/taxonomies/CustomTaxonomyOne.php';
+require_once plugin_dir_path(__FILE__) . './inc/taxonomies/CustomTaxonomyTwo.php';
+require_once plugin_dir_path(__FILE__) . './inc/CustomPostsFactory.php';
+require_once plugin_dir_path(__FILE__) . './inc/posts/CustomPostTypeOne.php';
+require_once plugin_dir_path(__FILE__) . './inc/posts/CustomPostTypeTwo.php';
 require_once plugin_dir_path(__FILE__) . './inc/PostsController.php';
 
 
@@ -31,14 +32,27 @@ class MyPlugin {
 
     public function init() {
         $this->taxonomies_controller->init_taxonomies();
+
+        $this->posts_controller->init_self();
         $this->posts_controller->init_posts();
     }
 }
 
 if (class_exists('MyPlugin')) {
-    $custom_post_type_one = new CustomPostTypeOne();
-    $custom_post_type_two = new CustomPostTypeTwo();
-    $posts_controller = new PostsController($custom_post_type_one, $custom_post_type_two);
+    $custom_posts_factory = new CustomPostsFactory(CustomPostTypeOne::class, CustomPostTypeTwo::class);
+
+    $posts_controller = new PostsController(
+        $custom_posts_factory,
+        [
+            'custom_post_type' => 'custom_post1',
+            'custom_field1_name' => 'custom_post1_field1',
+            'custom_field2_name' => 'custom_post1_field2',
+        ],
+        [
+            'custom_post_type' => 'custom_post2',
+            'custom_field2_name' => 'custom_post2_field1',
+        ],    
+    );
     
     $custom_taxonomy_one = new CustomTaxonomyOne();
     $custom_taxonomy_two = new CustomTaxonomyTwo();

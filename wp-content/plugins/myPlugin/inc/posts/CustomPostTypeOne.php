@@ -1,9 +1,20 @@
 <?php
 
-use function PHPSTORM_META\type;
+require_once plugin_dir_path(__FILE__) . '../interfaces/CustomPostInterface.php';
 
-class CustomPostTypeOne {
-    private $custom_post_type = 'custom_post1'; 
+class CustomPostTypeOne implements CustomPostInterface{
+    private $custom_post_type = null; 
+    private $custom_field1_name = null;
+    private $custom_field2_name = null;
+
+    public function __construct(
+        array $constructor_args
+    )
+    {
+        $this->custom_post_type = $constructor_args['custom_post_type'];
+        $this->custom_field1_name = $constructor_args['custom_field1_name'];
+        $this->custom_field2_name = $constructor_args['custom_field2_name'];
+    }
     
     public function create_post() {
         register_post_type( $this->custom_post_type, [
@@ -28,14 +39,15 @@ class CustomPostTypeOne {
 
     public function add_meta_boxes() {
        add_meta_box('custom-type-1-metabox', 'Custom post 1 setting', function($post) {
-        $field_1_value = get_post_meta($post->ID, 'custom_post1_field1', true) ?? '';
+        $field_name = $this->custom_field1_name;
+        $field_1_value = get_post_meta($post->ID, $field_name, true) ?? '';
             ?>
-                <label for="custom_post1_field1">
+                <label for="<?=$field_name ?>">
                     Field 1
                     <input 
                     type="text" 
-                    id="custom_post1_field1" 
-                    name="custom_post1_field1"
+                    id="<?=$field_name ?>" 
+                    name="<?=$field_name ?>"
                     value="<?=$field_1_value;?>"
                     >
                 </label>
@@ -54,7 +66,8 @@ class CustomPostTypeOne {
             ]
         ]);
 
-        $field_2_value = (int) get_post_meta($post->ID, 'custom_post1_field2', true) ?? '';
+        $field_name = $this->custom_field2_name;
+        $field_2_value = (int) get_post_meta($post->ID, $field_name, true) ?? '';
 
         $options = array_map(function($post) {
             return [
@@ -64,8 +77,8 @@ class CustomPostTypeOne {
         
         }, $all_type2_posts);
             ?>
-                <label for="custom_post1_field2">
-                   <select name="custom_post1_field2" id="custom_post1_field2">
+                <label for="<?=$field_name ?>">
+                   <select name="<?=$field_name ?>" id="<?=$field_name ?>">
                         <option value="">Select related post</option>
                          <?php
                             foreach ($options as $value) {
