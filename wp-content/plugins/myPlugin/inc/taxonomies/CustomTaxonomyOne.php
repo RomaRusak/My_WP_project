@@ -1,6 +1,10 @@
 <?php
 
-class CustomTaxonomyOne {
+require_once plugin_dir_path(__FILE__) . '../interfaces/TaxonomyCreatableInterface.php';
+require_once plugin_dir_path(__FILE__) . '../interfaces/TaxonomyCustFieldsCreateableInterface.php';
+require_once plugin_dir_path(__FILE__) . '../interfaces/TaxonomyCustFieldsEditableInterface.php';
+
+class CustomTaxonomyOne implements TaxonomyCreatableInterface, TaxonomyCustFieldsCreateableInterface, TaxonomyCustFieldsEditableInterface{
 
     private $custom_taxonomy_name = 'custom-taxonomy-1';
     private $custom_field2_name = 'field_2';
@@ -8,7 +12,7 @@ class CustomTaxonomyOne {
     public function init() {
         add_action('init', [$this, 'create_taxonomy']);
         add_action($this->custom_taxonomy_name  . '_add_form_fields', [$this, 'add_meta_box']);
-        add_action($this->custom_taxonomy_name . "_edit_form_fields", [$this, 'edit_new_custom_fields']);
+        add_action($this->custom_taxonomy_name . "_edit_form_fields", [$this, 'edit_custom_fields']);
 
         add_action('created_' . $this->custom_taxonomy_name , [$this, 'save_meta_box'], 10, 1);
         add_action('edited_' . $this->custom_taxonomy_name , [$this, 'save_meta_box'], 10, 1);
@@ -55,7 +59,7 @@ class CustomTaxonomyOne {
         update_term_meta( $term_id, $this->custom_field2_name, $field_2_value);
     }
 
-    public function edit_new_custom_fields($term) {
+    public function edit_custom_fields($term) {
         $custom_taxonomy1_field2_value = get_term_meta( $term->term_id, $this->custom_field2_name, true);
         ?>
 		<tr class="form-field">

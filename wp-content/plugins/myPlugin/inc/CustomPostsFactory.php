@@ -1,6 +1,8 @@
 <?php
 
-class CustomPostsFactory {
+require_once plugin_dir_path(__FILE__) . '/interfaces/FactoryInterface.php';
+
+class CustomPostsFactory implements FactoryInterface {
 
     private $customPostTypeOneClass;
     private $customPostTypeTwoClass;
@@ -13,7 +15,7 @@ class CustomPostsFactory {
         $this->customPostTypeTwoClass = $custom_post_type_two_class;
     }
 
-    public function create($type, $constructor_args = []) {
+    public function create(string $type, array $constructor_args = []) {
         switch ($type) {
             case 'one':
                 return new $this->customPostTypeOneClass($constructor_args);

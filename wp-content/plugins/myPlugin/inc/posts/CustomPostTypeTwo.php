@@ -1,8 +1,9 @@
 <?php
 
-require_once plugin_dir_path(__FILE__) . '../interfaces/CustomPostInterface.php';
+require_once plugin_dir_path(__FILE__) . '../interfaces/PostCreatbleInterface.php';
+require_once plugin_dir_path(__FILE__) . '../interfaces/PostCustFieldsCreateableInterface.php';
 
-class CustomPostTypeTwo implements CustomPostInterface {
+class CustomPostTypeTwo implements PostCreatbleInterface, PostCustFieldsCreateableInterface {
     private $custom_post_type = null; 
     private $custom_field2_name = null;
 

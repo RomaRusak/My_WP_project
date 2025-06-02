@@ -1,6 +1,8 @@
 <?php
 
-class CustomTaxonomyTwo {
+require_once plugin_dir_path(__FILE__) . '../interfaces/TaxonomyCreatableInterface.php';
+
+class CustomTaxonomyTwo implements TaxonomyCreatableInterface{
     private $custom_taxonomy_name = 'custom-taxonomy-2';
 
     public function init() {

@@ -1,8 +1,8 @@
 <?php
 
-require_once plugin_dir_path(__FILE__) . 'CustomPostsFactory.php';
+require_once plugin_dir_path(__FILE__) . 'interfaces/FactoryInterface.php';
 
-class PostsController {
+class CustomPostsController {
     private $custom_posts_factory = null;
     private $custom_post_type_one = null;
     private $custom_post_type_two = null;
@@ -10,7 +10,7 @@ class PostsController {
     private $custom_post_type_two_data = [];
 
     public function __construct(
-        CustomPostsFactory $custom_posts_factory,
+        FactoryInterface   $custom_posts_factory,
         array              $custom_post_type_one_data,
         array              $custom_post_type_two_data
     )
