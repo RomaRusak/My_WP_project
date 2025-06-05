@@ -49,6 +49,7 @@ class CustomTaxonomyOne implements TaxonomyCreatableInterface, TaxonomyCustField
         <?php
     }
 
+    
     public function save_meta_box($term_id) { 
         if (!isset($_POST[$this->custom_field2_name])) {
             return;
