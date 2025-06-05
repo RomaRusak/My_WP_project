@@ -1,130 +1,84 @@
-[02-Jun-2025 11:50:29 UTC] PHP Fatal error:  Uncaught TypeError: TaxonomiesController::__construct(): Argument #1 ($custom_taxonomy_one) must be of type CustomTaxonomyOne, CustomTaxonomiesFactory given, called in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php on line 61 and defined in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/TaxonomiesController.php:9
+[04-Jun-2025 09:14:35 UTC] Automatic updates starting...
+[04-Jun-2025 09:14:42 UTC]   Automatic plugin updates starting...
+[04-Jun-2025 09:14:42 UTC]   Automatic plugin updates complete.
+[04-Jun-2025 09:14:43 UTC] Automatic updates complete.
+[05-Jun-2025 05:30:20 UTC] Automatic updates starting...
+[05-Jun-2025 05:30:21 UTC]   Automatic plugin updates starting...
+[05-Jun-2025 05:30:21 UTC]   Automatic plugin updates complete.
+[05-Jun-2025 05:30:22 UTC] Automatic updates complete.
+[05-Jun-2025 05:34:43 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class CustomTaxonomyOne does not have a method "add_acf_custom_field" in /var/www/my_wp_project/wp-includes/class-wp-hook.php:324
 Stack trace:
-#0 /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php(61): TaxonomiesController->__construct()
-#1 /var/www/my_wp_project/wp-settings.php(545): include_once('...')
-#2 /var/www/my_wp_project/wp-config.php(103): require_once('...')
-#3 /var/www/my_wp_project/wp-load.php(50): require_once('...')
-#4 /var/www/my_wp_project/wp-admin/admin.php(35): require_once('...')
-#5 /var/www/my_wp_project/wp-admin/edit.php(10): require_once('...')
-#6 {main}
-  thrown in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/TaxonomiesController.php on line 9
-[02-Jun-2025 11:51:50 UTC] PHP Fatal error:  Uncaught Error: Object of class TaxonomiesController could not be converted to string in /var/www/my_wp_project/wp-includes/functions.php:4028
+#0 /var/www/my_wp_project/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#1 /var/www/my_wp_project/wp-includes/plugin.php(517): WP_Hook->do_action()
+#2 /var/www/my_wp_project/wp-content/plugins/advanced-custom-fields/acf.php(428): do_action()
+#3 /var/www/my_wp_project/wp-includes/class-wp-hook.php(324): ACF->init()
+#4 /var/www/my_wp_project/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#5 /var/www/my_wp_project/wp-includes/plugin.php(517): WP_Hook->do_action()
+#6 /var/www/my_wp_project/wp-settings.php(727): do_action()
+#7 /var/www/my_wp_project/wp-config.php(103): require_once('...')
+#8 /var/www/my_wp_project/wp-load.php(50): require_once('...')
+#9 /var/www/my_wp_project/wp-admin/admin.php(35): require_once('...')
+#10 /var/www/my_wp_project/wp-admin/edit-tags.php(10): require_once('...')
+#11 {main}
+  thrown in /var/www/my_wp_project/wp-includes/class-wp-hook.php on line 324
+[05-Jun-2025 05:35:47 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class CustomTaxonomyOne does not have a method "add_acf_custom_field" in /var/www/my_wp_project/wp-includes/class-wp-hook.php:324
 Stack trace:
-#0 /var/www/my_wp_project/wp-includes/functions.php(3831): _default_wp_die_handler()
-#1 /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/TaxonomiesController.php(15): wp_die()
-#2 /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php(61): TaxonomiesController->__construct()
-#3 /var/www/my_wp_project/wp-settings.php(545): include_once('...')
-#4 /var/www/my_wp_project/wp-config.php(103): require_once('...')
-#5 /var/www/my_wp_project/wp-load.php(50): require_once('...')
-#6 /var/www/my_wp_project/wp-admin/admin.php(35): require_once('...')
-#7 /var/www/my_wp_project/wp-admin/edit.php(10): require_once('...')
-#8 {main}
-  thrown in /var/www/my_wp_project/wp-includes/functions.php on line 4028
-[02-Jun-2025 11:54:30 UTC] Automatic updates starting...
-[02-Jun-2025 11:54:31 UTC]   Automatic plugin updates starting...
-[02-Jun-2025 11:54:32 UTC]   Automatic plugin updates complete.
-[02-Jun-2025 11:54:32 UTC] Automatic updates complete.
-[02-Jun-2025 12:11:54 UTC] PHP Warning:  require_once(/var/www/my_wp_project/wp-content/plugins/myPlugin/inc/interfaces/CustomPostInterface.php): Failed to open stream: No such file or directory in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/posts/CustomPostTypeTwo.php on line 3
-[02-Jun-2025 12:11:54 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/var/www/my_wp_project/wp-content/plugins/myPlugin/inc/interfaces/CustomPostInterface.php' (include_path='.:/usr/share/php') in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/posts/CustomPostTypeTwo.php:3
+#0 /var/www/my_wp_project/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#1 /var/www/my_wp_project/wp-includes/plugin.php(517): WP_Hook->do_action()
+#2 /var/www/my_wp_project/wp-content/plugins/advanced-custom-fields/acf.php(428): do_action()
+#3 /var/www/my_wp_project/wp-includes/class-wp-hook.php(324): ACF->init()
+#4 /var/www/my_wp_project/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#5 /var/www/my_wp_project/wp-includes/plugin.php(517): WP_Hook->do_action()
+#6 /var/www/my_wp_project/wp-settings.php(727): do_action()
+#7 /var/www/my_wp_project/wp-config.php(103): require_once('...')
+#8 /var/www/my_wp_project/wp-load.php(50): require_once('...')
+#9 /var/www/my_wp_project/wp-admin/admin.php(35): require_once('...')
+#10 /var/www/my_wp_project/wp-admin/edit-tags.php(10): require_once('...')
+#11 {main}
+  thrown in /var/www/my_wp_project/wp-includes/class-wp-hook.php on line 324
+[05-Jun-2025 05:39:16 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class CustomTaxonomyOne does not have a method "add_acf_custom_field" in /var/www/my_wp_project/wp-includes/class-wp-hook.php:324
 Stack trace:
-#0 /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php(16): require_once()
-#1 /var/www/my_wp_project/wp-settings.php(545): include_once('...')
-#2 /var/www/my_wp_project/wp-config.php(103): require_once('...')
-#3 /var/www/my_wp_project/wp-load.php(50): require_once('...')
-#4 /var/www/my_wp_project/wp-admin/admin-ajax.php(22): require_once('...')
-#5 {main}
-  thrown in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/posts/CustomPostTypeTwo.php on line 3
-[02-Jun-2025 12:18:27 UTC] PHP Warning:  require_once(/var/www/my_wp_project/wp-content/plugins/myPlugin/inc/taxonomies/../interfaces/TaxonomyCustomFieldCreateableInterface.php): Failed to open stream: No such file or directory in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/taxonomies/CustomTaxonomyOne.php on line 4
-[02-Jun-2025 12:18:27 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/var/www/my_wp_project/wp-content/plugins/myPlugin/inc/taxonomies/../interfaces/TaxonomyCustomFieldCreateableInterface.php' (include_path='.:/usr/share/php') in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/taxonomies/CustomTaxonomyOne.php:4
+#0 /var/www/my_wp_project/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#1 /var/www/my_wp_project/wp-includes/plugin.php(517): WP_Hook->do_action()
+#2 /var/www/my_wp_project/wp-content/plugins/advanced-custom-fields/acf.php(428): do_action()
+#3 /var/www/my_wp_project/wp-includes/class-wp-hook.php(324): ACF->init()
+#4 /var/www/my_wp_project/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#5 /var/www/my_wp_project/wp-includes/plugin.php(517): WP_Hook->do_action()
+#6 /var/www/my_wp_project/wp-settings.php(727): do_action()
+#7 /var/www/my_wp_project/wp-config.php(103): require_once('...')
+#8 /var/www/my_wp_project/wp-load.php(50): require_once('...')
+#9 /var/www/my_wp_project/wp-admin/admin.php(35): require_once('...')
+#10 /var/www/my_wp_project/wp-admin/edit-tags.php(10): require_once('...')
+#11 {main}
+  thrown in /var/www/my_wp_project/wp-includes/class-wp-hook.php on line 324
+[05-Jun-2025 05:39:16 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class CustomTaxonomyOne does not have a method "add_acf_custom_field" in /var/www/my_wp_project/wp-includes/class-wp-hook.php:324
 Stack trace:
-#0 /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php(12): require_once()
-#1 /var/www/my_wp_project/wp-settings.php(545): include_once('...')
-#2 /var/www/my_wp_project/wp-config.php(103): require_once('...')
-#3 /var/www/my_wp_project/wp-load.php(50): require_once('...')
-#4 /var/www/my_wp_project/wp-admin/admin-ajax.php(22): require_once('...')
-#5 {main}
-  thrown in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/taxonomies/CustomTaxonomyOne.php on line 4
-[02-Jun-2025 12:18:34 UTC] PHP Warning:  require_once(/var/www/my_wp_project/wp-content/plugins/myPlugin/inc/taxonomies/../interfaces/TaxonomyCustomFieldCreateableInterface.php): Failed to open stream: No such file or directory in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/taxonomies/CustomTaxonomyOne.php on line 4
-[02-Jun-2025 12:18:34 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/var/www/my_wp_project/wp-content/plugins/myPlugin/inc/taxonomies/../interfaces/TaxonomyCustomFieldCreateableInterface.php' (include_path='.:/usr/share/php') in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/taxonomies/CustomTaxonomyOne.php:4
+#0 /var/www/my_wp_project/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#1 /var/www/my_wp_project/wp-includes/plugin.php(517): WP_Hook->do_action()
+#2 /var/www/my_wp_project/wp-content/plugins/advanced-custom-fields/acf.php(428): do_action()
+#3 /var/www/my_wp_project/wp-includes/class-wp-hook.php(324): ACF->init()
+#4 /var/www/my_wp_project/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#5 /var/www/my_wp_project/wp-includes/plugin.php(517): WP_Hook->do_action()
+#6 /var/www/my_wp_project/wp-settings.php(727): do_action()
+#7 /var/www/my_wp_project/wp-config.php(103): require_once('...')
+#8 /var/www/my_wp_project/wp-load.php(50): require_once('...')
+#9 /var/www/my_wp_project/wp-admin/admin.php(35): require_once('...')
+#10 /var/www/my_wp_project/wp-admin/edit-tags.php(10): require_once('...')
+#11 {main}
+  thrown in /var/www/my_wp_project/wp-includes/class-wp-hook.php on line 324
+[05-Jun-2025 05:39:17 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class CustomTaxonomyOne does not have a method "add_acf_custom_field" in /var/www/my_wp_project/wp-includes/class-wp-hook.php:324
 Stack trace:
-#0 /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php(12): require_once()
-#1 /var/www/my_wp_project/wp-settings.php(545): include_once('...')
-#2 /var/www/my_wp_project/wp-config.php(103): require_once('...')
-#3 /var/www/my_wp_project/wp-load.php(50): require_once('...')
-#4 /var/www/my_wp_project/wp-admin/admin.php(35): require_once('...')
-#5 /var/www/my_wp_project/wp-admin/edit.php(10): require_once('...')
-#6 {main}
-  thrown in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/taxonomies/CustomTaxonomyOne.php on line 4
-[02-Jun-2025 12:18:35 UTC] PHP Warning:  require_once(/var/www/my_wp_project/wp-content/plugins/myPlugin/inc/taxonomies/../interfaces/TaxonomyCustomFieldCreateableInterface.php): Failed to open stream: No such file or directory in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/taxonomies/CustomTaxonomyOne.php on line 4
-[02-Jun-2025 12:18:35 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/var/www/my_wp_project/wp-content/plugins/myPlugin/inc/taxonomies/../interfaces/TaxonomyCustomFieldCreateableInterface.php' (include_path='.:/usr/share/php') in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/taxonomies/CustomTaxonomyOne.php:4
-Stack trace:
-#0 /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php(12): require_once()
-#1 /var/www/my_wp_project/wp-settings.php(545): include_once('...')
-#2 /var/www/my_wp_project/wp-config.php(103): require_once('...')
-#3 /var/www/my_wp_project/wp-load.php(50): require_once('...')
-#4 /var/www/my_wp_project/wp-admin/admin.php(35): require_once('...')
-#5 /var/www/my_wp_project/wp-admin/edit.php(10): require_once('...')
-#6 {main}
-  thrown in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/taxonomies/CustomTaxonomyOne.php on line 4
-[02-Jun-2025 12:21:30 UTC] Cron reschedule event error for hook: wp_update_plugins, Error code: could_not_set, Error message: The cron event list could not be saved., Data: {"schedule":"twicedaily","args":[],"interval":43200}
-[02-Jun-2025 12:34:51 UTC] PHP Warning:  require_once(/var/www/my_wp_project/wp-content/plugins/myPlugin/inc/PostsController.php): Failed to open stream: No such file or directory in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php on line 17
-[02-Jun-2025 12:34:51 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/var/www/my_wp_project/wp-content/plugins/myPlugin/inc/PostsController.php' (include_path='.:/usr/share/php') in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php:17
-Stack trace:
-#0 /var/www/my_wp_project/wp-settings.php(545): include_once()
-#1 /var/www/my_wp_project/wp-config.php(103): require_once('...')
-#2 /var/www/my_wp_project/wp-load.php(50): require_once('...')
-#3 /var/www/my_wp_project/wp-admin/admin-ajax.php(22): require_once('...')
-#4 {main}
-  thrown in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php on line 17
-[02-Jun-2025 12:38:35 UTC] PHP Warning:  require_once(/var/www/my_wp_project/wp-content/plugins/myPlugin/inc/TaxonomiesController.php): Failed to open stream: No such file or directory in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php on line 10
-[02-Jun-2025 12:38:35 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/var/www/my_wp_project/wp-content/plugins/myPlugin/inc/TaxonomiesController.php' (include_path='.:/usr/share/php') in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php:10
-Stack trace:
-#0 /var/www/my_wp_project/wp-settings.php(545): include_once()
-#1 /var/www/my_wp_project/wp-config.php(103): require_once('...')
-#2 /var/www/my_wp_project/wp-load.php(50): require_once('...')
-#3 /var/www/my_wp_project/wp-admin/admin-ajax.php(22): require_once('...')
-#4 {main}
-  thrown in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php on line 10
-[02-Jun-2025 12:39:50 UTC] PHP Deprecated:  Creation of dynamic property MyPlugin::$custom_taxonomies_controller_ is deprecated in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php on line 31
-[02-Jun-2025 12:39:50 UTC] PHP Fatal error:  Uncaught Error: Call to a member function init_self() on null in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php:35
-Stack trace:
-#0 /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php(64): MyPlugin->init()
-#1 /var/www/my_wp_project/wp-settings.php(545): include_once('...')
-#2 /var/www/my_wp_project/wp-config.php(103): require_once('...')
-#3 /var/www/my_wp_project/wp-load.php(50): require_once('...')
-#4 /var/www/my_wp_project/wp-admin/admin-ajax.php(22): require_once('...')
-#5 {main}
-  thrown in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php on line 35
-[02-Jun-2025 12:39:51 UTC] PHP Deprecated:  Creation of dynamic property MyPlugin::$custom_taxonomies_controller_ is deprecated in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php on line 31
-[02-Jun-2025 12:39:51 UTC] PHP Fatal error:  Uncaught Error: Call to a member function init_self() on null in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php:35
-Stack trace:
-#0 /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php(64): MyPlugin->init()
-#1 /var/www/my_wp_project/wp-settings.php(545): include_once('...')
-#2 /var/www/my_wp_project/wp-config.php(103): require_once('...')
-#3 /var/www/my_wp_project/wp-load.php(50): require_once('...')
-#4 /var/www/my_wp_project/wp-admin/admin.php(35): require_once('...')
-#5 /var/www/my_wp_project/wp-admin/edit.php(10): require_once('...')
-#6 {main}
-  thrown in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php on line 35
-[02-Jun-2025 12:40:19 UTC] PHP Fatal error:  Uncaught Error: Object of class CustomTaxonomiesController could not be converted to string in /var/www/my_wp_project/wp-includes/functions.php:4028
-Stack trace:
-#0 /var/www/my_wp_project/wp-includes/functions.php(3831): _default_wp_die_handler()
-#1 /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php(61): wp_die()
-#2 /var/www/my_wp_project/wp-settings.php(545): include_once('...')
-#3 /var/www/my_wp_project/wp-config.php(103): require_once('...')
-#4 /var/www/my_wp_project/wp-load.php(50): require_once('...')
-#5 /var/www/my_wp_project/wp-admin/admin.php(35): require_once('...')
-#6 /var/www/my_wp_project/wp-admin/edit.php(10): require_once('...')
-#7 {main}
-  thrown in /var/www/my_wp_project/wp-includes/functions.php on line 4028
-[02-Jun-2025 12:41:38 UTC] PHP Deprecated:  Creation of dynamic property MyPlugin::$custom_taxonomies_controller_ is deprecated in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php on line 31
-[02-Jun-2025 12:41:38 UTC] PHP Fatal error:  Uncaught Error: Call to a member function init_self() on null in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php:35
-Stack trace:
-#0 /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php(64): MyPlugin->init()
-#1 /var/www/my_wp_project/wp-settings.php(545): include_once('...')
-#2 /var/www/my_wp_project/wp-config.php(103): require_once('...')
-#3 /var/www/my_wp_project/wp-load.php(50): require_once('...')
-#4 /var/www/my_wp_project/wp-admin/admin.php(35): require_once('...')
-#5 /var/www/my_wp_project/wp-admin/edit.php(10): require_once('...')
-#6 {main}
-  thrown in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php on line 35
+#0 /var/www/my_wp_project/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#1 /var/www/my_wp_project/wp-includes/plugin.php(517): WP_Hook->do_action()
+#2 /var/www/my_wp_project/wp-content/plugins/advanced-custom-fields/acf.php(428): do_action()
+#3 /var/www/my_wp_project/wp-includes/class-wp-hook.php(324): ACF->init()
+#4 /var/www/my_wp_project/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#5 /var/www/my_wp_project/wp-includes/plugin.php(517): WP_Hook->do_action()
+#6 /var/www/my_wp_project/wp-settings.php(727): do_action()
+#7 /var/www/my_wp_project/wp-config.php(103): require_once('...')
+#8 /var/www/my_wp_project/wp-load.php(50): require_once('...')
+#9 /var/www/my_wp_project/wp-admin/admin.php(35): require_once('...')
+#10 /var/www/my_wp_project/wp-admin/edit-tags.php(10): require_once('...')
+#11 {main}
+  thrown in /var/www/my_wp_project/wp-includes/class-wp-hook.php on line 324
+[05-Jun-2025 05:41:01 UTC] PHP Fatal error:  Cannot redeclare custom_acf_fields() (previously declared in /var/www/my_wp_project/wp-content/plugins/myPlugin/myPlugin.php:67) in /var/www/my_wp_project/wp-content/plugins/myPlugin/inc/taxonomies/CustomTaxonomyOne.php on line 14
