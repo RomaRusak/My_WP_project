@@ -7,36 +7,43 @@ require_once plugin_dir_path(__FILE__) . '../interfaces/TaxonomyCustFieldsEditab
 class CustomTaxonomyOne implements TaxonomyCreatableInterface, TaxonomyCustFieldsCreateableInterface, TaxonomyCustFieldsEditableInterface{
 
     private $custom_taxonomy_name = 'custom-taxonomy-1';
-    private $custom_field1_name = 'taxonomy1_field_1';
-    private $custom_field2_name = 'taxonomy1_field_2';
+    private $custom_field1_name = 'taxonomy1_field1';
+    private $custom_field2_name = 'taxonomy1_field2';
 
     public function init() {
-
-        
+        add_action( 'acf/init', [$this, 'add_custom_acf_fields']);
         add_action('init', [$this, 'create_taxonomy']);
 
-        add_action( 'acf/init', [$this, 'add_custom_acf_fields']);
+        // add_action($this->custom_taxonomy_name  . '_add_form_fields', [$this, 'add_meta_box']);
+        // add_action($this->custom_taxonomy_name . "_edit_form_fields", [$this, 'edit_custom_fields']);
 
-        add_action($this->custom_taxonomy_name  . '_add_form_fields', [$this, 'add_meta_box']);
-        add_action($this->custom_taxonomy_name . "_edit_form_fields", [$this, 'edit_custom_fields']);
-
-        add_action('created_' . $this->custom_taxonomy_name , [$this, 'save_meta_box'], 10, 1);
-        add_action('edited_' . $this->custom_taxonomy_name , [$this, 'save_meta_box'], 10, 1);
+        // add_action('created_' . $this->custom_taxonomy_name , [$this, 'save_meta_box'], 10, 1);
+        // add_action('edited_' . $this->custom_taxonomy_name , [$this, 'save_meta_box'], 10, 1);
     }
 
     function add_custom_acf_fields() {
         acf_add_local_field_group([
-            'key'    => 'acf_img_field',
+            'key'    => 'taxonomy_one_first_group',
             'title'  => 'Custom Field for Taxonomy',
             'fields' => [
                     [
-                        'key' => 'taxonomy1_field_1_image',
+                        'key' => 'taxonomy1_field1_image',
                         'label' => 'Image Field',
                         'name' => $this->custom_field1_name,
                         'type' => 'image',
                         'return_format' => 'url',
                         'min_width' => 0,
                         'max_height' => 2000,
+                    ],
+                    [
+                        'key' => 'taxonomy1_field2_toggle',
+                        'label' => 'Toggle Field',
+                        'name' => $this->custom_field1_name,
+                        'default_value' => 0,
+                        'type' => 'true_false',
+                        'ui' => 1,
+                        'ui_on_text'    => 'agree',
+	                    'ui_off_text'   => 'disagree',
                     ],
             ],
             'location' => [
