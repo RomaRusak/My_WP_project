@@ -5,6 +5,7 @@ require_once plugin_dir_path(__FILE__) . '../interfaces/PostCustFieldsCreateable
 
 class CustomPostTypeTwo implements PostCreatbleInterface, PostCustFieldsCreateableInterface {
     private $custom_post_type = null; 
+    private $custom_field1_name = 'test';
     private $custom_field2_name = null;
 
     public function __construct(
@@ -12,6 +13,7 @@ class CustomPostTypeTwo implements PostCreatbleInterface, PostCustFieldsCreateab
     )
     {
         $this->custom_post_type = $constructor_args['custom_post_type'];
+        $this->custom_field1_name = $constructor_args['custom_field1_name'];
         $this->custom_field2_name = $constructor_args['custom_field2_name'];
     } 
 
@@ -38,7 +40,49 @@ class CustomPostTypeTwo implements PostCreatbleInterface, PostCustFieldsCreateab
         ]);
     }
 
+    public function add_custom_acf_fields() {
+        acf_add_local_field_group([
+            'key'    => 'custom_post2_first_group',
+            'title'  => 'Custom Field for Post2',
+            'fields' => [
+                    [
+                        'key' => 'post2_field1_select',
+                        'label' => 'select Field',
+                        'name' => $this->custom_field1_name,
+                        'type' => 'select',
+                        'choices' => [
+                            'type_1'   => 'type 1',
+                            'type_2'   => 'type 2',
+                            'type_3'   => 'type 3',
+                        ],
+                        'wrapper' => [
+                            'width' => '20%', 
+                        ],
+                    ],
+                    [
+                        'key' => 'post2_field2_relationsip',
+                        'label' => 'related taxonomy Field',
+                        'name' => $this->custom_field2_name,
+                        'type' => 'taxonomy',
+                        'taxonomy' => 'custom-taxonomy-2',
+                        'load_save_terms'   => true,
+                        'allow_null' => true,
+                    ],
+            ],
+            'location' => [
+                    [
+                        [
+                            'param' => 'post_type',
+                            'operator' => '==',
+                            'value' => $this->custom_post_type,
+                        ],
+                    ],
+                ],
+        ]);
+    }
+
     public function add_meta_boxes() {
+        /*
         add_meta_box('custom-type-2-metabox', 'Custom post 2 setting', function($post) {
             $field_name = $this->custom_field2_name;
             $field_1_value = get_post_meta($post->ID, $field_name, true) ?? '';
@@ -62,17 +106,18 @@ class CustomPostTypeTwo implements PostCreatbleInterface, PostCustFieldsCreateab
                 </label>
             <?php
        }, $this->custom_post_type);
-
+        */
+        /*
        add_meta_box('custom-type-2-metabox-2', 'Select related taxonomies', function($post) {
             $related_taxonomy_name = 'custom-taxonomy-2';
-        
+
             $all_terms = get_terms(array(
                 'taxonomy' => $related_taxonomy_name,
-                'hide_empty' => false, 
+                'hide_empty' => false,
             ));
 
             $related_custom_2_terms =  wp_get_post_terms($post->ID, $related_taxonomy_name, array('fields' => 'ids'));
-            
+
              ?>
                 <?php
                     foreach ($all_terms as $term_data) {
@@ -83,15 +128,15 @@ class CustomPostTypeTwo implements PostCreatbleInterface, PostCustFieldsCreateab
 
                         echo "
                             <div>
-                                <label for '$term_id'>$term_name 
-                                    <input 
-                                    type='hidden' 
-                                    name='$transformed_term_name' 
+                                <label for '$term_id'>$term_name
+                                    <input
+                                    type='hidden'
+                                    name='$transformed_term_name'
                                     value='off'
                                     >
-                                    <input 
-                                    id='$term_id' 
-                                    name='$transformed_term_name' 
+                                    <input
+                                    id='$term_id'
+                                    name='$transformed_term_name'
                                     type='checkbox'
                                     $isChecked
                                     >
@@ -102,6 +147,8 @@ class CustomPostTypeTwo implements PostCreatbleInterface, PostCustFieldsCreateab
                 ?>
             <?php
        }, $this->custom_post_type);
+
+        */
     }
     
 }

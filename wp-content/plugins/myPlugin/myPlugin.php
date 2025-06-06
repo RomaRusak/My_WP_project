@@ -16,9 +16,7 @@ require_once plugin_dir_path(__FILE__) . './inc/posts/CustomPostTypeOne.php';
 require_once plugin_dir_path(__FILE__) . './inc/posts/CustomPostTypeTwo.php';
 require_once plugin_dir_path(__FILE__) . './inc/CustomPostsController.php';
 
-
 class MyPlugin {
-
     private $custom_posts_controller      = null;
     private $custom_taxonomies_controller = null;
 
@@ -46,13 +44,14 @@ if (class_exists('MyPlugin')) {
     $custom_posts_controller = new CustomPostsController(
         $custom_posts_factory,
         [
-            'custom_post_type' => 'custom_post1',
+            'custom_post_type'   => 'custom_post1',
             'custom_field1_name' => 'custom_post1_field1',
             'custom_field2_name' => 'custom_post1_field2',
         ],
         [
-            'custom_post_type' => 'custom_post2',
-            'custom_field2_name' => 'custom_post2_field1',
+            'custom_post_type'   => 'custom_post2',
+            'custom_field1_name' => 'custom_post2_field1',
+            'custom_field2_name' => 'custom_post2_field2',
         ],    
     );
 
