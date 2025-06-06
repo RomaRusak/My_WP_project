@@ -27,15 +27,25 @@ class CustomPostsController {
         $this->custom_post_type_two = $this->custom_posts_factory->create('two', $this->custom_post_type_two_data);
     }
 
+
     public function init_posts() {
+
         add_action('init', [$this, 'create_custom_post_types']);
+
+        add_action( 'acf/init', [$this, 'add_custom_acf_fields']);
+        
         add_action('add_meta_boxes', [$this, 'add_meta_boxes'],);
         add_action('save_post', [$this, 'save_posts_meta'], 10, 2);
     }
 
-     public function create_custom_post_types() {
+    public function create_custom_post_types() {
         $this->custom_post_type_one->create_post();
         $this->custom_post_type_two->create_post();
+    }
+
+    public function add_custom_acf_fields() {
+        $this->custom_post_type_one->add_custom_acf_fields();
+        $this->custom_post_type_two->add_custom_acf_fields();
     }
 
     public function add_meta_boxes() {
@@ -44,23 +54,23 @@ class CustomPostsController {
     }
    
     public function save_posts_meta($post_id) {
-        $this->save_meta_field(
-            $post_id, 
-            $this->custom_post_type_one_data['custom_field1_name'], 
-            $_POST[$this->custom_post_type_one_data['custom_field1_name']] ?? null
-        );
+        // $this->save_meta_field(
+        //     $post_id, 
+        //     $this->custom_post_type_one_data['custom_field1_name'], 
+        //     $_POST[$this->custom_post_type_one_data['custom_field1_name']] ?? null
+        // );
 
-        $this->save_meta_field(
-            $post_id, 
-            $this->custom_post_type_two_data['custom_field2_name'], 
-            $_POST[$this->custom_post_type_two_data['custom_field2_name']] ?? null);
+        // $this->save_meta_field(
+        //     $post_id, 
+        //     $this->custom_post_type_two_data['custom_field2_name'], 
+        //     $_POST[$this->custom_post_type_two_data['custom_field2_name']] ?? null);
 
-        $this->save_meta_field(
-            $post_id, 
-            $this->custom_post_type_one_data['custom_field2_name'], 
-            $_POST[$this->custom_post_type_one_data['custom_field2_name']] ?? null);
+        // $this->save_meta_field(
+        //     $post_id, 
+        //     $this->custom_post_type_one_data['custom_field2_name'], 
+        //     $_POST[$this->custom_post_type_one_data['custom_field2_name']] ?? null);
 
-        $this->save_related_terms($post_id, 'custom-taxonomy-2');
+        // $this->save_related_terms($post_id, 'custom-taxonomy-2');
     }
 
     private function save_meta_field($post_id, $field_name, $value) {
