@@ -103,4 +103,5 @@ class CustomPostTypeTwo implements PostCreatbleInterface, PostCustFieldsCreateab
             <?php
        }, $this->custom_post_type);
     }
+    
 }
